@@ -1,6 +1,31 @@
+const mockImageUrls = [
+  'https://utfs.io/f/f961a60e-f42d-4788-8ea1-bc06e1350958-7bko4f.png',
+  'https://utfs.io/f/4ef05ba9-03f4-4de7-83ed-78cdca924c6f-oyw24k.png',
+  'https://utfs.io/f/ff5d13c2-5890-4028-b1ae-5d6a5ca7acd0-rovm8v.png',
+  'https://utfs.io/f/9ccdafa8-968d-47df-8757-8b50ec2be36b-wh4z0.png',
+  'https://utfs.io/f/f5b4662a-527f-4d69-9cf8-10430f52f515-6d1biu.png',
+  'https://utfs.io/f/80a72a07-aa7d-40c0-a9a4-c573f036ce1f-vh1wfn.png',
+];
+
+const mockImages = mockImageUrls.map((url, index) => ({
+  id: index + 1,
+  url,
+}));
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="">
+      <div className="flex flex-wrap gap-4">
+        {[...mockImages, ...mockImages, ...mockImages].map((image, index) => (
+          <div key={image.id} className="w-48">
+            <img
+              src={image.url}
+              alt={`gallery-${index}:${image.id}`}
+              className="w-full"
+            />
+          </div>
+        ))}
+      </div>
       Hello (gallery in progress)
     </main>
   );
